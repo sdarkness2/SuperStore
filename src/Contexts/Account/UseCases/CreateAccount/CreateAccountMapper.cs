@@ -8,6 +8,5 @@ public class CreateAccountMapper : Profile
     public CreateAccountMapper()
     {
         CreateMap<CreateAccountRequest, UserAccount>();
-        CreateMap<CreateAccountResponse, UserAccount>();
     }
 }

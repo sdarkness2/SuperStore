@@ -1,9 +1,14 @@
-var builder = WebApplication.CreateBuilder(args);
+using AccountAPI.EndPoints;
+using Account.Services;
+using AccountAPI;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+builder.Services.ConfigureApplication();
+builder.Services.ConfigureApplicationServices();
 
 var app = builder.Build();
 
@@ -13,12 +18,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.MapGet("/", () => "Hello Word");
+app.MapAccountEndPoints();
 
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
 
 app.Run();

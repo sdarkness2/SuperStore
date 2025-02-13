@@ -12,7 +12,7 @@ public sealed class CreateAcccountValidator : AbstractValidator<CreateAccountReq
         RuleFor(x => x.BrithDate).Must(ValidAge).WithMessage("Invalid age.");
     }
 
-    private bool ValidAge(DateTime date)
+    private bool ValidAge(DateOnly date)
     {
         int age = DateTime.Now.Year - date.Year;
         if (age < 18)
