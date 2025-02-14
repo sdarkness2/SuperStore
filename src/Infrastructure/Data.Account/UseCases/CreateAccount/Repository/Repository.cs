@@ -1,5 +1,4 @@
 ﻿using Account.Entities;
-using Account.UseCases.CreateAccount;
 using Account.UseCases.CreateAccount.Contracts;
 
 namespace Data.Account.UseCases.CreateAccount.Repository;
