@@ -1,9 +1,11 @@
 ﻿using Account.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Data.Account.Mapping;
 
+[ExcludeFromCodeCoverage]
 public class UserAccountMapping : IEntityTypeConfiguration<UserAccount>
 {
     public void Configure(EntityTypeBuilder<UserAccount> builder)

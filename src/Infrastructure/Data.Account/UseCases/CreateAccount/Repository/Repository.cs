@@ -1,8 +1,10 @@
 ﻿using Account.Entities;
 using Account.UseCases.CreateAccount.Contracts;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Data.Account.UseCases.CreateAccount.Repository;
 
+[ExcludeFromCodeCoverage]
 public class Repository : IRepository
 {
     List<UserAccount> _users = [];

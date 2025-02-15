@@ -1,10 +1,12 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace Account.Services;
 
-public static class ServicesExtensions
+[ExcludeFromCodeCoverage]
+public static class AccountServices
 {
     public static void ConfigureApplication(this IServiceCollection services)
     {
