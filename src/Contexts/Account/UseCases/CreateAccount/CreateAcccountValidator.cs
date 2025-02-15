@@ -6,10 +6,10 @@ public sealed class CreateAcccountValidator : AbstractValidator<CreateAccountReq
 {
     public CreateAcccountValidator()
     {
-        RuleFor(x => x.Email).NotEmpty().EmailAddress().WithMessage("Invalid e-mail.");
-        RuleFor(x => x.Password).NotEmpty().MinimumLength(8).MaximumLength(20).WithMessage("Invalid password.");
-        RuleFor(x => x.Name).NotEmpty().MinimumLength(3).MaximumLength(50).WithMessage("Invalid name.");
-        RuleFor(x => x.BrithDate).Must(ValidAge).WithMessage("Invalid age.");
+        RuleFor(x => x.Email).NotEmpty().EmailAddress();
+        RuleFor(x => x.Password).NotEmpty().Length(8, 20);
+        RuleFor(x => x.Name).NotEmpty().Length(3, 20);
+        RuleFor(x => x.BrithDate).Must(ValidAge).WithMessage("Você precisa ter 18 anos ou mais.");
     }
 
     private bool ValidAge(DateOnly date)
