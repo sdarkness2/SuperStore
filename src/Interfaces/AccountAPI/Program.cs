@@ -1,13 +1,11 @@
-using AccountAPI.EndPoints;
-using Account.Services;
 using AccountAPI;
+using AccountAPI.EndPoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-builder.Services.ConfigureApplication();
 builder.Services.ConfigureApplicationServices();
 
 var app = builder.Build();
