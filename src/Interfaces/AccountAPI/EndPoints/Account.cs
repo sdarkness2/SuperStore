@@ -1,9 +1,11 @@
 ﻿using Account.UseCases.CreateAccount;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AccountAPI.EndPoints;
 
+[ExcludeFromCodeCoverage]
 public static class Account
 {
     public static void MapAccountEndPoints(this WebApplication app)

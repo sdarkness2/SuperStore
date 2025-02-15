@@ -20,10 +20,10 @@ public class CreateAccountHandler(IMapper mapper, IRepository repository) : IReq
         var user = mapper.Map<UserAccount>(request);
 
         if (repository.VerifyIfExists(user))
-            return new CreateAccountResponse(Message: "Usuário já existe");
+            return new CreateAccountResponse(Message: "Usuário já existe.");
 
         repository.Create(user);
 
-        return new CreateAccountResponse(Message: "Conta criada com sucesso");
+        return new CreateAccountResponse(Message: "Conta criada com sucesso.");
     }
 }
