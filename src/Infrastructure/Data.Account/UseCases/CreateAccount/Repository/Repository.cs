@@ -1,5 +1,6 @@
 ﻿using Account.Entities;
 using Account.UseCases.CreateAccount.Contracts;
+using Data.Account.Context;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Data.Account.UseCases.CreateAccount.Repository;
@@ -7,21 +8,19 @@ namespace Data.Account.UseCases.CreateAccount.Repository;
 [ExcludeFromCodeCoverage]
 public class Repository : IRepository
 {
-    List<UserAccount> _users = [];
-
     public int Create(UserAccount request)
     {
-        int userCount = _users.Count;
+        using AccountContext context = new();
 
-        _users.Add(
-            request
-            );
+        context.Accounts.Add(request);
 
-        return _users.Count - userCount;
+        return context.SaveChanges();
     }
 
     public bool VerifyIfExists(UserAccount request)
     {
-        return _users.Any(_users => _users.Email == request.Email || _users.Name == request.Name);
+        using AccountContext context = new();
+
+        return context.Accounts.Any(_users => _users.Email == request.Email || _users.Name == request.Name);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Account.Entities;
 using Account.UseCases.CreateAccount.Contracts;
+using Data.Account.Context;
 using Data.Account.UseCases.CreateAccount.Repository;
 using FluentValidation;
 using System.Diagnostics.CodeAnalysis;
@@ -11,7 +12,8 @@ public static class Services
 {
     public static void ConfigureApplicationServices(this IServiceCollection services)
     {
-        services.AddSingleton<IRepository, Repository>();
+        services.AddScoped<IRepository, Repository>();
+        services.AddDbContext<AccountContext>();
         services.AddMediatR(x => x.RegisterServicesFromAssembly(typeof(UserAccount).Assembly));
         services.AddAutoMapper(x => x.AddMaps(typeof(UserAccount).Assembly));
         services.AddValidatorsFromAssembly(typeof(UserAccount).Assembly);
